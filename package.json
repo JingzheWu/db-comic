@@ -1,0 +1,69 @@
+{
+  "name": "db-comic",
+  "version": "0.5.0",
+  "description": "一个用来爬取《龙珠超次元乱战》漫画的脚本，可以自动下载官网的图片并生成PDF文件保存到本地",
+  "author": "JingzheWu <1370819501@qq.com>",
+  "keywords": [
+    "爬虫",
+    "漫画",
+    "龙珠超次元乱战",
+    "龙珠"
+  ],
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "download": "npm run build && node dist/index.js",
+    "update": "npm run build && node dist/index.js --update",
+    "commit": "git-cz",
+    "commitlint": "commitlint --edit $1",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-staged": "lint-staged",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx ./ --fix",
+    "ts-check": "tsc --noEmit",
+    "prepare": "husky install",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^12.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "commitizen": "^4.2.4",
+    "commitlint": "^12.1.4",
+    "conventional-changelog-cli": "^2.1.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint"
+    ],
+    "test/**/*.{ts,tsx}": [
+      "eslint"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "image-size": "^1.0.2",
+    "pdf-lib": "^1.17.1"
+  }
+}
