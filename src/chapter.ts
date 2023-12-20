@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import { getDomainFromUrl, getHtml, removeLineBreak, unescape } from './util';
 import { DB_COMIC_URL } from './const';
 import { Logger } from './logger';
@@ -156,7 +156,7 @@ export const fetchChapters = async (
     chaptersLength: all.length,
     chapters: all,
   };
-  fs.existsSync('./results') || fs.mkdirSync('./results');
+  fs.ensureDirSync('./results');
   fs.writeFileSync('./results/details.json', JSON.stringify(jsonFile, null, 2));
   Logger.success('保存章节详情文件成功');
   return { all, diff };

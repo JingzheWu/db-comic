@@ -1,5 +1,5 @@
 import * as https from 'https';
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import imageSize from 'image-size';
 import {
   PDFDocument,
@@ -209,7 +209,7 @@ export const imgsToPdf = async (params: {
 
     const pdfBytes = await pdfDoc.save();
     const outputPathDir = outputPath.split('/').slice(0, -1).join('/');
-    fs.existsSync(outputPathDir) || fs.mkdirSync(outputPathDir);
+    fs.ensureDirSync(outputPathDir);
     fs.writeFileSync(outputPath, pdfBytes);
   } catch (error) {
     Logger.error(`生成PDF${outputPath}失败`, error);

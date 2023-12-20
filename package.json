@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^12.1.4",
+    "@types/fs-extra": "^11.0.4",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "commitizen": "^4.2.4",
@@ -63,6 +64,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
+    "fs-extra": "^11.2.0",
     "image-size": "^1.0.2",
     "pdf-lib": "^1.17.1"
   }

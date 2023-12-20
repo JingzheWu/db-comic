@@ -13,6 +13,12 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": [],
+  "cSpell.words": [
+    "apos",
+    "Bojack",
+    "commitlint",
+    "Jingzhe",
+    "pageslist"
+  ],
   "editor.wordWrapColumn": 120
 }

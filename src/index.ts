@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import * as path from 'path';
 import { IChapterWithDetail, IPage, fetchChapters } from './chapter';
 import { downloadImgsFromPagesUrl } from './singlePage';
@@ -69,7 +69,7 @@ const download = async (params: {
     return;
   }
 
-  fs.existsSync(chapterPath) || fs.mkdirSync(chapterPath);
+  fs.ensureDirSync(chapterPath);
   Logger.log(`创建目录 ${chapterPath} 成功`);
   await downloadImgsFromPagesUrl(pages, chapterPath, concurrent);
 
@@ -83,7 +83,7 @@ const toPdf = async (params: {
   chaptersPath: string;
   chapter: string;
   /**
-   * 是否强制更新章节详情(用于在网站更新后, 重新下载所有章节url), 默认为 false
+   * 是否跳过转换当前章节为 pdf
    */
   shouldChapterSkipToPdf?: (chapter: string) => boolean;
   /**
@@ -206,6 +206,7 @@ const start = async (params: IStartParams) => {
   const diffChapters = diff.map(chapter => chapter.chapterNum);
 
   const chaptersPath = path.resolve(__dirname, '../results/chapters');
+  fs.ensureDirSync(chaptersPath);
   let chapters = filterDSStore(fs.readdirSync(chaptersPath));
   // ['Chapter-1', 'Chapter-2', 'Chapter-3', 'Chapter-4', ...]
   chapters = chapters.filter(chapter => !chapter.includes('pdf'));
