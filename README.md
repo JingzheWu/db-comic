@@ -48,5 +48,5 @@ npm run update
 ## 说明
 
 - 本项目仅供学习交流使用，方便大家阅读漫画，不得用于商业用途
-- 官网地址：[龙珠超次元乱战]('https://www.dragonball-multiverse.com/cn/chapters.html?comic=page)，请大家多多支持漫画作者
+- 官网地址：[《龙珠超次元乱战》](https://www.dragonball-multiverse.com/cn/chapters.html?comic=page)，请大家多多支持漫画作者
 - 欢迎提出建议和改进意见，以及Issues和PR
